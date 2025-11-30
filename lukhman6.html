@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaik Lukhman - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family:'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family:'Poppins', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.2;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #0f3460;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover { color: #162447; }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+}
+
+.nav-links a {
+    color: #1a1a2e;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover { color: #e94560; }
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(135deg, #162447, #1f4068);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.hero-image img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 5px solid #e94560;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    object-fit: cover;
+}
+
+.hero-text { max-width: 600px; }
+
+.hero-title {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 0.2em;
+    color: #ffffff;
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 2em;
+    color: #d3d3d3;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #e94560;
+    color: #fff;
+    padding: 0.8em 2em;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* --- Section Titles --- */
+.section { padding: 6em 0; }
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    position: relative;
+    padding-bottom: 0.5em;
+    color: #0f3460;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #e94560;
+    border-radius: 2px;
+}
+
+/* --- About Section --- */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+    flex-wrap: wrap;
+}
+
+.about-image-wrapper { flex: 1; text-align: center; }
+
+.profile-photo {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10%;
+    border: 5px solid #9da2a8;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.profile-photo:hover { transform: scale(1.2); }
+
+.about-text-wrapper {
+    flex: 2;
+    color: #333;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2em;
+    text-align: center;
+}
+
+.skill-item {
+    background: #ffffff;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.skill-item i {
+    font-size: 3em;
+    color: #e94560;
+    margin-bottom: 0.5em;
+}
+
+/* --- Portfolio --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+}
+
+.portfolio-card {
+    background: #f0f4f8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.portfolio-card img {
+    width: 100%;
+    display: block;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-content { padding: 1.5em; }
+
+.card-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #0f3460;
+}
+
+.card-content p { color: #555; }
+
+.view-link {
+    display: inline-block;
+    color: #e94560;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.view-link:hover { color: #0f3460; }
+
+/* --- Contact Section --- */
+.contact-text {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    color: #333;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    background-color: #0f3460;
+    color: #fff;
+    padding: 0.8em 1.5em;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-button:hover {
+    background-color: #e94560;
+    transform: translateY(-3px);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2em 0;
+    background-color: #1a1a2e;
+    color: #fff;
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+    .hero-flex { flex-direction: column; text-align: center; }
+    .hero-image img { width: 220px; height: 220px; }
+    .about-section { flex-direction: column; text-align: center; }
+    .contact-links { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">Shaik Lukhman</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-section">
+        <div class="container hero-content hero-flex">
+            <div class="hero-image">
+                <img src="./image.png" alt="Shaik Lukhman">
+            </div>
+            <div class="hero-text">
+                <h1 class="hero-title">Shaik Lukhman</h1>
+                <p class="hero-subtitle">Full Stack Development</p>
+                <a href="#portfolio" class="cta-button">View My Work</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- About -->
+        <section id="about" class="section about-section">
+            <div class="about-image-wrapper">
+                <img src="./OIP 333.jpeg" alt="Shaik Lukhman" class="profile-photo">
+            </div>
+            <div class="about-text-wrapper">
+                <h2 class="section-title">About Me</h2>
+                <p>I am Shaik Lukhman, a passionate Full Stack Developer and aspiring Data Scientist with a strong foundation in <b>Python, Java, Node.js, and web technologies including HTML, CSS, JavaScript, React, and Django</b>. I have hands-on experience in building dynamic web applications, such as an <b>Agriculture Products E-Commerce platform, and AI projects like a Python-based Voice Assistant</b>. Skilled in database management, RESTful services, cloud platforms (AWS, Azure), and microservices architecture, I thrive on designing scalable, efficient, and user-friendly solutions. I am highly motivated, possess strong problem-solving and communication skills, and continuously seek opportunities to apply emerging technologies to real-world challenges.</p>
+            </div>
+        </section>
+        
+        <!-- Skills -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-python"></i><h3>Python</h3></div>
+                <div class="skill-item"><i class="fab fa-java"></i><h3>Java</h3></div>
+                <div class="skill-item"><i class="fas fa-code"></i><h3>Node.js </h3></div>
+                <div class="skill-item"><i class="fab fa-html5"></i><h3>HTML5</h3></div>
+                <div class="skill-item"><i class="fab fa-css3"></i><h3>CSS3</h3></div>
+                <div class="skill-item"><i class="fab fa-js-square"></i><h3>JavaScript</h3></div>
+                <div class="skill-item"><i class="fab fa-react"></i><h3>React.js</h3></div>
+                <div class="skill-item"><i class="fas fa-database"></i><h3>SQL</h3></div>
+                <div class="skill-item"><i class="fas fa-server"></i><h3>Django / REST API</h3></div>
+                <div class="skill-item"><i class="fas fa-paper-plane"></i><h3>POSTMAN</h3></div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="portfolio" class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="portfolio-grid">
+
+                <!-- UPDATED E-COMMERCE PROJECT -->
+                <div class="portfolio-card">
+                    <img src="./OIP.jpeg" alt="Agriculture E-Commerce">
+                    <div class="card-content">
+                        <h3>Agriculture Products E-Commerce</h3>
+                        <p>
+                        A full-stack Django web application that enables farmers to sell products directly to consumers. 
+                        It features secure payment integration, responsive design, and an admin panel for managing inventory. 
+                        The project aims to reduce middlemen, improve farmer profits, and provide fresh products to buyers.
+                        </p>
+
+                        <a href="https://e-comerse-web-site.onrender.com" target="_blank" class="view-link">
+                            🌐 Live Deployment →
+                        </a><br>
+
+                        <a href="https://github.com/Lukhman97/E-comerse_web_site" target="_blank" class="view-link">
+                            💻 View Code →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portfolio Website -->
+                <div class="portfolio-card">
+                    <img src="./OIP22.jpeg" alt="Portfolio Website">
+                    <div class="card-content">
+                        <h3>Portfolio Website</h3>
+                        <p>
+                        A responsive personal portfolio site built using HTML, CSS, and JavaScript. 
+                        It highlights my skills, projects, and achievements with a clean UI and smooth navigation.
+                        </p>
+                        <a href="https://lukhman97.github.io/Portfolio_html_css/lukhman6.html" class="view-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- AI Voice Assistant -->
+                <div class="portfolio-card">
+                    <img src="./OIP (1).jpeg" alt="AI Voice Assistant">
+                    <div class="card-content">
+                        <h3>AI Voice Assistant</h3>
+                        <p>
+                        An AI-powered voice assistant built in Python using speech_recognition and pyttsx3.
+                        It listens to voice commands and performs automated actions.
+                        </p>
+                        <a href="#" class="view-link">View Project →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-text">Excited to collaborate or work together? Let’s connect!</p>
+            <div class="contact-links">
+                <a href="mailto:lukhmanshaik786@gmail.com" class="contact-button">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/lukhman-shaik-816492281" target="_blank" class="contact-button">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/Lukhman97" target="_blank" class="contact-button">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Shaik Lukhman. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
