@@ -4,455 +4,303 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shaik Lukhman - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-html { scroll-behavior: smooth; }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 
 body {
     font-family:'Poppins', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f5f7fa;
+    background:#f5f7fa;
+    color:#333;
 }
 
-/* Container */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2em;
-}
+.container { max-width:1100px; margin:auto; padding:0 20px; }
 
-/* Headings */
-h1, h2, h3 {
-    font-family:'Poppins', sans-serif;
-    color: #1a1a2e;
-    line-height: 1.2;
-}
-
-/* --- Navigation Bar --- */
+/* Navbar */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
+    position:fixed; top:0; width:100%;
+    background:#fff; padding:15px 0;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    z-index:1000;
 }
-
 .nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 2em;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0 20px;
 }
-
-.logo {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #0f3460;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.logo:hover { color: #162447; }
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2em;
-}
-
+.logo { font-size:1.6rem; font-weight:700; color:#0f3460; text-decoration:none; }
+.nav-links { display:flex; gap:25px; }
 .nav-links a {
-    color: #1a1a2e;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+    text-decoration:none; font-weight:600; color:#1a1a2e;
 }
+.nav-links a:hover { color:#e94560; }
 
-.nav-links a:hover { color: #e94560; }
-
-/* --- Hero Section --- */
+/* Hero */
 .hero-section {
-    background: linear-gradient(135deg, #162447, #1f4068);
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background:linear-gradient(135deg,#162447,#1f4068);
+    min-height:100vh; color:#fff;
+    display:flex; align-items:center;
 }
-
 .hero-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3em;
-    flex-wrap: wrap;
-    text-align: left;
+    display:flex; justify-content:center;
+    align-items:center; flex-wrap:wrap;
+    gap:40px;
 }
-
 .hero-image img {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    border: 5px solid #e94560;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    object-fit: cover;
+    width:330px; height:330px;
+    border-radius:50%; object-fit:cover;
+    border:5px solid #e94560;
 }
-
-.hero-text { max-width: 600px; }
-
-.hero-title {
-    font-size: 3.5em;
-    font-weight: 700;
-    margin-bottom: 0.2em;
-    color: #ffffff;
-}
-
-.hero-subtitle {
-    font-size: 1.5em;
-    font-weight: 400;
-    margin-bottom: 2em;
-    color: #d3d3d3;
-}
-
+.hero-title { font-size:3.5rem; }
+.hero-subtitle { font-size:1.4rem; color:#ddd; }
 .cta-button {
-    display: inline-block;
-    background-color: #e94560;
-    color: #fff;
-    padding: 0.8em 2em;
-    border-radius: 50px;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background:#e94560; padding:12px 25px;
+    color:white; border-radius:50px;
+    display:inline-block; margin-top:15px;
 }
 
-.cta-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-/* --- Section Titles --- */
-.section { padding: 6em 0; }
-
+/* Sections */
+.section { padding:80px 0; }
 .section-title {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 1.5em;
-    position: relative;
-    padding-bottom: 0.5em;
-    color: #0f3460;
+    font-size:2.4rem; font-weight:700;
+    text-align:center; margin-bottom:15px;
+    position:relative;
 }
-
 .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: #e94560;
-    border-radius: 2px;
+    content:""; width:60px; height:4px;
+    background:#e94560; border-radius:5px;
+    position:absolute; left:50%; transform:translateX(-50%);
+    bottom:-10px;
 }
 
-/* --- About Section --- */
-.about-section {
-    display: flex;
-    align-items: center;
-    gap: 4em;
-    flex-wrap: wrap;
-}
-
-.about-image-wrapper { flex: 1; text-align: center; }
-
+/* About */
+.about-section { display:flex; align-items:center; flex-wrap:wrap; gap:40px; }
 .profile-photo {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10%;
-    border: 5px solid #9da2a8;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
-    transition: transform 0.5s ease;
-    object-fit: cover;
+    width:300px; height:300px;
+    border-radius:12px; border:4px solid #9da2a8;
+    object-fit:cover;
 }
 
-.profile-photo:hover { transform: scale(1.2); }
-
-.about-text-wrapper {
-    flex: 2;
-    color: #333;
-}
-
-/* --- Skills Section --- */
+/* Skills */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2em;
-    text-align: center;
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:25px;
 }
-
 .skill-item {
-    background: #ffffff;
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
+    background:white; padding:25px; text-align:center;
+    border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.08);
+}
+.skill-item i { font-size:2.5rem; color:#e94560; }
+
+/* Project Cards */
+.tech-heading {
+    font-size:2rem; text-align:center;
+    margin:40px 0 20px 0; color:#162447;
+    font-weight:700;
 }
 
-.skill-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.skill-item i {
-    font-size: 3em;
-    color: #e94560;
-    margin-bottom: 0.5em;
-}
-
-/* --- Portfolio --- */
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2em;
+    display:grid; gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
 }
-
 .portfolio-card {
-    background: #f0f4f8;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    background:white; border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 6px 15px rgba(0,0,0,0.12);
+    transition:0.3s;
 }
-
 .portfolio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform:translateY(-6px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
 }
 
 .portfolio-card img {
-    width: 100%;
-    display: block;
-    height: 250px;
-    object-fit: cover;
+    width:100%; height:260px;
+    object-fit:cover; object-position:center;
+    border-bottom:2px solid #eee;
 }
 
-.card-content { padding: 1.5em; }
-
-.card-content h3 {
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
-    color: #0f3460;
-}
-
-.card-content p { color: #555; }
-
+.card-content { padding:20px; }
+.card-content h3 { color:#0f3460; font-size:1.3rem; }
 .view-link {
-    display: inline-block;
-    color: #e94560;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 10px;
-    transition: color 0.3s;
+    color:#e94560; text-decoration:none;
+    font-weight:600; margin-top:8px; display:inline-block;
 }
 
-.view-link:hover { color: #0f3460; }
-
-/* --- Contact Section --- */
-.contact-text {
-    text-align: center;
-    font-size: 1.2em;
-    margin-bottom: 2em;
-    color: #333;
-}
-
+/* Contact */
 .contact-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5em;
+    display:flex; flex-wrap:wrap;
+    justify-content:center; gap:20px;
 }
-
 .contact-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    background-color: #0f3460;
-    color: #fff;
-    padding: 0.8em 1.5em;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.3s;
+    background:#0f3460; color:white;
+    padding:12px 25px; border-radius:6px;
+    text-decoration:none; display:flex;
+    align-items:center; gap:10px;
 }
 
-.contact-button:hover {
-    background-color: #e94560;
-    transform: translateY(-3px);
-}
-
-/* --- Footer --- */
+/* Footer */
 footer {
-    text-align: center;
-    padding: 2em 0;
-    background-color: #1a1a2e;
-    color: #fff;
-}
-
-/* Media Query */
-@media (max-width: 768px) {
-    .hero-flex { flex-direction: column; text-align: center; }
-    .hero-image img { width: 220px; height: 220px; }
-    .about-section { flex-direction: column; text-align: center; }
-    .contact-links { flex-direction: column; align-items: center; }
+    background:#1a1a2e; text-align:center; padding:20px 0;
+    color:white;
 }
 </style>
 </head>
+
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="#" class="logo">Shaik Lukhman</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#portfolio">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-content container">
+        <a class="logo" href="#">Shaik Lukhman</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero -->
-    <header class="hero-section">
-        <div class="container hero-content hero-flex">
-            <div class="hero-image">
-                <img src="./image.png" alt="Shaik Lukhman">
-            </div>
-            <div class="hero-text">
-                <h1 class="hero-title">Shaik Lukhman</h1>
-                <p class="hero-subtitle">Full Stack Development</p>
-                <a href="#portfolio" class="cta-button">View My Work</a>
+<!-- HERO -->
+<header class="hero-section">
+    <div class="container hero-flex">
+        <div class="hero-image">
+            <img src="./image.png">
+        </div>
+        <div>
+            <h1 class="hero-title">Shaik Lukhman</h1>
+            <p class="hero-subtitle">Full Stack Developer</p>
+            <a href="#portfolio" class="cta-button">View My Work</a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+<!-- ABOUT -->
+<section id="about" class="section about-section">
+    <img src="./OIP 333.jpeg" class="profile-photo">
+    <div>
+        <h2 class="section-title">About Me</h2>
+        <p>
+            I am Shaik Lukhman, a passionate Full Stack Developer with experience in
+            <b>Python, Django, HTML, CSS, JavaScript, SQL, and Power BI</b>.
+            I enjoy building modern, responsive, and scalable applications that solve real-world problems.
+            I have developed full-stack web applications, dynamic frontend interfaces, data automation scripts,
+            and business intelligence dashboards. I focus on writing clean code and continuously learning.
+        </p>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+    <h2 class="section-title">Technical Skills</h2>
+
+    <div class="skills-grid">
+        <div class="skill-item"><i class="fab fa-python"></i><h3>Python</h3></div>
+        <div class="skill-item"><i class="fab fa-java"></i><h3>Java</h3></div>
+        <div class="skill-item"><i class="fas fa-server"></i><h3>Django</h3></div>
+        <div class="skill-item"><i class="fab fa-html5"></i><h3>HTML5</h3></div>
+        <div class="skill-item"><i class="fab fa-css3"></i><h3>CSS3</h3></div>
+        <div class="skill-item"><i class="fab fa-js-square"></i><h3>JavaScript</h3></div>
+        <div class="skill-item"><i class="fas fa-database"></i><h3>SQL</h3></div>
+        <div class="skill-item"><i class="fas fa-chart-bar"></i><h3>Power BI</h3></div>
+    </div>
+</section>
+
+
+<!-- PROJECTS -->
+<section id="portfolio" class="section">
+    <h2 class="section-title">Projects</h2>
+
+    <!-- DJANGO -->
+    <h2 class="tech-heading">Django</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <img src="./AGRI-GRO.png">
+            <div class="card-content">
+                <h3>Agriculture E-Commerce Platform</h3>
+                <p>
+                    A full-stack Django web application enabling farmers to sell products directly 
+                    to consumers. Includes product management, authentication, admin dashboard,
+                    and responsive UI.
+                </p>
+                <a href="https://e-comerse-web-site.onrender.com" class="view-link" target="_blank">🌐 Live Deployment →</a><br>
+                <a href="https://github.com/Lukhman97/E-comerse_web_site" class="view-link" target="_blank">💻 View Code →</a>
             </div>
         </div>
-    </header>
+    </div>
 
-    <main class="container">
-
-        <!-- About -->
-        <section id="about" class="section about-section">
-            <div class="about-image-wrapper">
-                <img src="./OIP 333.jpeg" alt="Shaik Lukhman" class="profile-photo">
+    <!-- FRONTEND -->
+    <h2 class="tech-heading">Frontend</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <img src="./portfoilo.png">
+            <div class="card-content">
+                <h3>Personal Portfolio Website</h3>
+                <p>
+                    A fully responsive personal portfolio designed with HTML, CSS, and JavaScript.
+                    Includes smooth scrolling, animations, mobile-friendly UI, and project showcases.
+                </p>
+                <a href="https://lukhman97.github.io/My_Portfoilo_Website/lukhman6.html" class="view-link" target="_blank">🌐 Live Deployment →</a><br>
+                <a href="https://github.com/Lukhman97/My_Portfoilo_Website" class="view-link" target="_blank">💻 View Code →</a>
             </div>
-            <div class="about-text-wrapper">
-                <h2 class="section-title">About Me</h2>
-                <p>I am Shaik Lukhman, a passionate Full Stack Developer and aspiring Data Scientist with a strong foundation in <b>Python, Java, Node.js, and web technologies including HTML, CSS, JavaScript, React, and Django</b>. I have hands-on experience in building dynamic web applications, such as an <b>Agriculture Products E-Commerce platform, and AI projects like a Python-based Voice Assistant</b>. Skilled in database management, RESTful services, cloud platforms (AWS, Azure), and microservices architecture, I thrive on designing scalable, efficient, and user-friendly solutions.</p>
+        </div>
+    </div>
+
+    <!-- PYTHON -->
+    <h2 class="tech-heading">Python</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1581092795360-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80">
+            <div class="card-content">
+                <h3>AI Voice Assistant</h3>
+                <p>
+                    A Python automation voice assistant built using SpeechRecognition and pyttsx3.
+                    It can open apps, answer queries, search the internet, read news, and automate tasks.
+                </p>
+                <a href="./AI_aaistance_using_python.png"
+                   class="view-link" target="_blank">💻 View Code →</a>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Skills -->
-        <section id="skills" class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item"><i class="fab fa-python"></i><h3>Python</h3></div>
-                <div class="skill-item"><i class="fab fa-java"></i><h3>Java</h3></div>
-                <div class="skill-item"><i class="fas fa-code"></i><h3>Node.js</h3></div>
-                <div class="skill-item"><i class="fab fa-html5"></i><h3>HTML5</h3></div>
-                <div class="skill-item"><i class="fab fa-css3"></i><h3>CSS3</h3></div>
-                <div class="skill-item"><i class="fab fa-js-square"></i><h3>JavaScript</h3></div>
-                <div class="skill-item"><i class="fab fa-react"></i><h3>React.js</h3></div>
-                <div class="skill-item"><i class="fas fa-database"></i><h3>SQL</h3></div>
-                <div class="skill-item"><i class="fas fa-server"></i><h3>Django / REST API</h3></div>
-                <div class="skill-item"><i class="fas fa-paper-plane"></i><h3>POSTMAN</h3></div>
+    <!-- POWER BI -->
+    <h2 class="tech-heading">Power BI</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <img src="./">
+            <div class="card-content">
+                <h3>Power BI Data Analytics Dashboards</h3>
+                <p>
+                    A collection of business intelligence dashboards featuring sales analysis,
+                    finance reports, KPIs, forecasting, and interactive visualizations using DAX.
+                </p>
+                <a href="./power_bi.png" class="view-link" target="_blank">📊 View Power BI Projects →</a>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Projects -->
-        <section id="portfolio" class="section">
-            <h2 class="section-title">Projects</h2>
-            <div class="portfolio-grid">
+</section>
 
-                <!-- E-COMMERCE PROJECT -->
-                <div class="portfolio-card">
-                    <img src="./OIP.jpeg" alt="Agriculture E-Commerce">
-                    <div class="card-content">
-                        <h3>Agriculture Products E-Commerce</h3>
-                        <p>A full-stack Django app enabling farmers to sell products directly to consumers.</p>
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-links">
+        <a href="mailto:lukhmanshaik786@gmail.com" class="contact-button"><i class="fas fa-envelope"></i>Email</a>
+        <a href="https://linkedin.com/in/lukhman-shaik-816492281" class="contact-button" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+        <a href="https://github.com/Lukhman97" class="contact-button" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+    </div>
+</section>
 
-                        <a href="https://e-comerse-web-site.onrender.com" target="_blank" class="view-link">
-                            🌐 Live Deployment →
-                        </a><br>
+</main>
 
-                        <a href="https://github.com/Lukhman97/E-comerse_web_site" target="_blank" class="view-link">
-                            💻 View Code →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PORTFOLIO WEBSITE -->
-                <div class="portfolio-card">
-                    <img src="./OIP22.jpeg" alt="Portfolio Website">
-                    <div class="card-content">
-                        <h3>Portfolio Website</h3>
-                        <p>A modern and responsive portfolio website built using HTML, CSS, and JavaScript.</p>
-
-                        <a href="https://lukhman97.github.io/My_Portfoilo_Website/lukhman6.html" target="_blank" class="view-link">
-                            🌐 Live Deployment →
-                        </a><br>
-
-                        <a href="https://github.com/Lukhman97/My_Portfoilo_Website" target="_blank" class="view-link">
-                            💻 View Code →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- VOICE ASSISTANT -->
-                <div class="portfolio-card">
-                    <img src="./OIP (1).jpeg" alt="AI Voice Assistant">
-                    <div class="card-content">
-                        <h3>AI Voice Assistant</h3>
-                        <p>A Python-based voice assistant using speech recognition and text-to-speech.</p>
-
-                        <a href="https://github.com/Lukhman97/voice_assistance_using-python/blob/main/voice-assitance_using_python.py" 
-                           target="_blank" class="view-link">
-                           💻 View Code →
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="section">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-text">Excited to collaborate or work together? Let’s connect!</p>
-            <div class="contact-links">
-                <a href="mailto:lukhmanshaik786@gmail.com" class="contact-button">
-                    <i class="fas fa-envelope"></i> Email Me
-                </a>
-                <a href="https://www.linkedin.com/in/lukhman-shaik-816492281" target="_blank" class="contact-button">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://github.com/Lukhman97" target="_blank" class="contact-button">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Shaik Lukhman. All Rights Reserved.</p>
-    </footer>
+<footer>
+    <p>© 2025 Shaik Lukhman. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
