@@ -1,322 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shaik Lukhman - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shaik Lukhman - Portfolio</title>
 
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-body {
-    font-family:'Poppins', sans-serif;
-    background:#f5f7fa;
-    color:#333;
-}
+  <style>
+    /* ========== Root variables ========== */
+    :root{
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --accent: #e94560; 
+      --accent-light: #ff8aa2;
+      --nav: #ffffff;
+      --glass: rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.6);
+      --shadow: 0 8px 25px rgba(15, 52, 96, 0.08);
+      --glass-blur: 8px;
+    }
 
-.container { max-width:1100px; margin:auto; padding:0 20px; }
+    .dark {
+      --bg: linear-gradient(180deg,#061026 0%, #0f2b48 100%);
+      --card: rgba(12, 27, 45, 0.6);
+      --text: #e6eef9;
+      --muted: #b8c7dd;
+      --accent: #ff6b88; 
+      --accent-light: #ff8aa2;
+      --nav: rgba(8,18,34,0.5);
+      --glass: rgba(12,27,45,0.5);
+      --glass-border: rgba(255,255,255,0.05);
+      --shadow: 0 12px 30px rgba(2,6,23,0.6);
+      --glass-blur: 10px;
+    }
 
-/* Navbar */
-.navbar {
-    position:fixed; top:0; width:100%;
-    background:#fff; padding:15px 0;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    z-index:1000;
-}
-.nav-content {
-    display:flex; justify-content:space-between; align-items:center;
-    padding:0 20px;
-}
-.logo { font-size:1.6rem; font-weight:700; color:#0f3460; text-decoration:none; }
-.nav-links { display:flex; gap:25px; }
-.nav-links a {
-    text-decoration:none; font-weight:600; color:#1a1a2e;
-}
-.nav-links a:hover { color:#e94560; }
+    /* ========== Base styles ========== */
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 350ms ease, color 350ms ease;
+      line-height:1.55;
+    }
 
-/* Hero */
-.hero-section {
-    background:linear-gradient(135deg,#162447,#1f4068);
-    min-height:100vh; color:#fff;
-    display:flex; align-items:center;
-}
-.hero-flex {
-    display:flex; justify-content:center;
-    align-items:center; flex-wrap:wrap;
-    gap:40px;
-}
-.hero-image img {
-    width:330px; height:330px;
-    border-radius:50%; object-fit:cover;
-    border:5px solid #e94560;
-}
-.hero-title { font-size:3.5rem; }
-.hero-subtitle { font-size:1.4rem; color:#ddd; }
-.cta-button {
-    background:#e94560; padding:12px 25px;
-    color:white; border-radius:50px;
-    display:inline-block; margin-top:15px;
-}
+    .container { max-width:1100px; margin:0 auto; padding:0 20px; }
 
-/* Sections */
-.section { padding:80px 0; }
-.section-title {
-    font-size:2.4rem; font-weight:700;
-    text-align:center; margin-bottom:15px;
-    position:relative;
-}
-.section-title::after {
-    content:""; width:60px; height:4px;
-    background:#e94560; border-radius:5px;
-    position:absolute; left:50%; transform:translateX(-50%);
-    bottom:-10px;
-}
+    /* =================== NAVBAR =================== */
+    .navbar{
+      position:fixed; inset:0 0 auto 0; z-index:1200;
+      background:var(--nav);
+      backdrop-filter: blur(6px);
+      box-shadow: var(--shadow);
+      padding:14px 0;
+    }
 
-/* About */
-.about-section { display:flex; align-items:center; flex-wrap:wrap; gap:40px; }
-.profile-photo {
-    width:300px; height:300px;
-    border-radius:12px; border:4px solid #9da2a8;
-    object-fit:cover;
-}
+    .nav-content{
+      display:flex; align-items:center; justify-content:space-between;
+    }
 
-/* Skills */
-.skills-grid {
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:25px;
-}
-.skill-item {
-    background:white; padding:25px; text-align:center;
-    border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.08);
-}
-.skill-item i { font-size:2.5rem; color:#e94560; }
+    .logo{ font-size:1.45rem; font-weight:700; color:var(--text); text-decoration:none; }
 
-/* Project Cards */
-.tech-heading {
-    font-size:2rem; text-align:center;
-    margin:40px 0 20px 0; color:#162447;
-    font-weight:700;
-}
+    .nav-links{ display:flex; gap:22px; }
+    .nav-links a{
+      text-decoration:none; 
+      color:var(--text); 
+      font-weight:600;
+      padding:6px 10px;
+      border-radius:8px;
+      transition: background 220ms, transform 220ms;
+    }
+    .nav-links a:hover{
+      background:rgba(233,69,96,0.10);
+      transform:translateY(-2px);
+      color:var(--accent);
+    }
 
-.portfolio-grid {
-    display:grid; gap:30px;
-    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-}
-.portfolio-card {
-    background:white; border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 6px 15px rgba(0,0,0,0.12);
-    transition:0.3s;
-}
-.portfolio-card:hover {
-    transform:translateY(-6px);
-    box-shadow:0 15px 30px rgba(0,0,0,0.15);
-}
+    /* Mode Toggle */
+    .mode-toggle{
+      display:inline-flex; gap:8px; padding:8px 12px; cursor:pointer;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.08); 
+      border-radius:999px;
+      align-items:center;
+    }
+    .mode-toggle i{ color:var(--accent); }
 
-.portfolio-card img {
-    width:100%; height:260px;
-    object-fit:cover; object-position:center;
-    border-bottom:2px solid #eee;
-}
+    /* =================== HERO =================== */
+    .hero-section{
+      min-height:88vh; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center;
+      padding-top:72px;
+      background: linear-gradient(135deg,#162447,#1f4068);
+      color:#fff;
+    }
 
-.card-content { padding:20px; }
-.card-content h3 { color:#0f3460; font-size:1.3rem; }
-.view-link {
-    color:#e94560; text-decoration:none;
-    font-weight:600; margin-top:8px; display:inline-block;
-}
+    .hero-flex{
+      display:flex;
+      flex-wrap:wrap;
+      gap:36px;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+    }
 
-/* Contact */
-.contact-links {
-    display:flex; flex-wrap:wrap;
-    justify-content:center; gap:20px;
-}
-.contact-button {
-    background:#0f3460; color:white;
-    padding:12px 25px; border-radius:6px;
-    text-decoration:none; display:flex;
-    align-items:center; gap:10px;
-}
+    .hero-image img{
+      width:320px; height:320px;
+      border-radius:50%;
+      object-fit:cover;
+      border:6px solid rgba(255,255,255,0.12);
+      box-shadow:0 14px 40px rgba(0,0,0,0.45);
+    }
 
-/* Footer */
-footer {
-    background:#1a1a2e; text-align:center; padding:20px 0;
-    color:white;
-}
-</style>
+    .hero-title{
+      font-size:2.8rem;
+      font-weight:700;
+    }
+
+    .hero-subtitle{ font-size:1.05rem; color:#e6eef9; }
+
+    .cta-button{
+      display:inline-block;
+      margin-top:16px;
+      padding:12px 26px;
+      border-radius:999px;
+      font-weight:700;
+      text-decoration:none;
+      background:linear-gradient(90deg,var(--accent),var(--accent-light));
+      color:#fff;
+      transition:transform .3s;
+    }
+    .cta-button:hover{ transform:translateY(-4px); }
+
+    /* =================== ABOUT =================== */
+    .section{ padding:70px 0; }
+
+    .section-title{
+      font-size:1.8rem;
+      font-weight:700;
+      position:relative;
+      display:inline-block;
+      margin-bottom:10px;
+    }
+    .section-title::after{
+      content:"";
+      display:block;
+      width:65px;
+      height:4px;
+      margin-top:6px;
+      border-radius:4px;
+      background:var(--accent);
+    }
+
+    .about-section{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:36px;
+    }
+
+    .profile-photo{
+      width:330px; height:330px;
+      border-radius:16px;
+      overflow:hidden;
+      border:6px solid rgba(255,255,255,0.06);
+      box-shadow: 0 12px 35px rgba(16,36,64,0.12);
+      transition:0.4s;
+    }
+
+    .profile-photo img{
+      width:100%; height:100%; object-fit:cover; 
+    }
+
+    .profile-photo:hover{
+      transform:translateY(-6px) scale(1.03);
+      box-shadow:0 22px 55px rgba(15,52,96,0.35);
+    }
+
+    .about-text{
+      flex:1;
+      background:var(--card);
+      border:1px solid var(--glass-border);
+      padding:26px;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(var(--glass-blur));
+      transition:0.4s;
+    }
+
+    /* =================== SKILLS =================== */
+    .subcategory-title{
+      text-align:center;
+      font-size:1.2rem;
+      margin:28px 0 18px;
+    }
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+      gap:18px;
+    }
+
+    .skill-item{
+      background:var(--card);
+      padding:18px;
+      text-align:center;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--glass-border);
+      transition:.3s;
+    }
+    .skill-item:hover{
+      transform:translateY(-8px);
+      background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+    }
+    .skill-item i{
+      font-size:1.6rem; 
+      margin-bottom:8px; 
+      color:var(--accent);
+    }
+
+    /* =================== PORTFOLIO =================== */
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:22px;
+      margin-top:16px;
+    }
+
+    .portfolio-card{
+      background:var(--card);
+      border-radius:14px;
+      border:1px solid var(--glass-border);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:.3s;
+    }
+
+    .portfolio-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 20px 60px rgba(0,0,0,0.28);
+    }
+
+    .card-media img{
+      width:100%; height:200px; object-fit:cover;
+      transition:.4s;
+    }
+
+    .portfolio-card:hover .card-media img{
+      transform:scale(1.06);
+    }
+
+    .card-content{ padding:18px; }
+
+    .card-links{
+      margin-top:10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .project-btn{
+      display:flex; align-items:center; gap:8px;
+      padding:10px 14px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-light));
+      border-radius:10px;
+      color:#fff; 
+      text-decoration:none;
+      font-weight:700;
+      transition:.3s;
+    }
+
+    .project-btn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 30px rgba(233,69,96,0.25);
+    }
+
+    /* =================== RESUME =================== */
+    .resume-btn{
+      display:inline-flex; 
+      align-items:center; 
+      gap:12px; 
+      padding:16px 32px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-light));
+      border-radius:14px;
+      color:#fff; 
+      font-size:1.2rem;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 6px 25px rgba(0,0,0,0.2);
+      transition:.3s;
+    }
+
+    .resume-btn:hover{
+      transform:translateY(-4px) scale(1.03);
+      box-shadow:0 0 25px var(--accent-light);
+    }
+
+    /* =================== CONTACT =================== */
+    .contact-section{
+      text-align:center;
+      padding:70px 0;
+    }
+
+    .contact-links{
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:25px;
+    }
+
+    .contact-button{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:18px 28px;
+      font-size:1.2rem;
+      background:var(--card);
+      color:var(--text);
+      border-radius:14px;
+      border:1px solid var(--glass-border);
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      transition:.3s;
+      backdrop-filter:blur(var(--glass-blur));
+    }
+
+    .contact-button i{
+      font-size:1.8rem !important;
+      color:var(--accent);
+    }
+
+    .contact-button:hover{
+      transform:translateY(-6px);
+      box-shadow:0 20px 45px rgba(0,0,0,0.25);
+      background:linear-gradient(90deg,var(--accent),var(--accent-light));
+      color:#fff;
+    }
+
+    /* =================== FOOTER =================== */
+    footer{ 
+      text-align:center; 
+      padding:22px 0;
+      font-size:0.95rem;
+      margin-top:40px; 
+      color:var(--muted); 
+    }
+
+  </style>
 </head>
 
 <body>
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a class="logo" href="#">Shaik Lukhman</a>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="nav-content container">
-        <a class="logo" href="#">Shaik Lukhman</a>
+      <div style="display:flex; align-items:center; gap:12px;">
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#portfolio">Projects</a>
-            <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#portfolio">Projects</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
         </div>
-    </div>
-</nav>
 
-<!-- HERO -->
-<header class="hero-section">
+        <button id="themeToggle" class="mode-toggle">
+          <i class="fas fa-moon"></i>
+          <span id="modeLabel">Dark</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =================== HERO =================== -->
+  <header class="hero-section">
     <div class="container hero-flex">
-        <div class="hero-image">
-            <img src="./image111.png">
-        </div>
-        <div>
-            <h1 class="hero-title">Shaik Lukhman</h1>
-            <p class="hero-subtitle">Full Stack Developer</p>
-            <a href="#portfolio" class="cta-button">View My Work</a>
-        </div>
+      <div class="hero-image">
+        <img src="./image111.png">
+      </div>
+      <div>
+        <h1 class="hero-title">Shaik Lukhman</h1>
+        <p class="hero-subtitle">Full Stack Developer — Python, Django, JS & Power BI</p>
+        <a href="#portfolio" class="cta-button">View My Work</a>
+      </div>
     </div>
-</header>
+  </header>
 
-<main class="container">
 
-<!-- ABOUT -->
-<section id="about" class="section about-section">
-    <img src="./OIP 333.jpeg" class="profile-photo">
-    <div>
+  <main class="container">
+
+    <!-- ==== ABOUT ==== -->
+    <section id="about" class="section about-section">
+      <div class="profile-photo">
+        <img src="./OIP 333.jpeg">
+      </div>
+
+      <div class="about-text" id="aboutText">
         <h2 class="section-title">About Me</h2>
         <p>
-            I am Shaik Lukhman, a passionate Full Stack Developer with experience in
-            <b>Python, Django, HTML, CSS, JavaScript, SQL, and Power BI</b>.
-            I enjoy building modern, responsive, and scalable applications that solve real-world problems.
-            I have developed full-stack web applications, dynamic frontend interfaces,
-            data automation scripts, and business intelligence dashboards. I focus on writing clean code and continuously learning.
+          I'm <strong>Shaik Lukhman</strong>, a Full Stack Developer building modern, responsive, and scalable applications.
+          I work with <strong>Python, Django, HTML, CSS, JavaScript, SQL</strong> and build dashboards with <strong>Power BI</strong>.
         </p>
-    </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="section">
-    <h2 class="section-title">Technical Skills</h2>
-
-    <div class="skills-grid">
-        <div class="skill-item"><i class="fab fa-python"></i><h3>Python</h3></div>
-        <div class="skill-item"><i class="fab fa-java"></i><h3>Java</h3></div>
-        <div class="skill-item"><i class="fas fa-server"></i><h3>Django</h3></div>
-        <div class="skill-item"><i class="fab fa-html5"></i><h3>HTML5</h3></div>
-        <div class="skill-item"><i class="fab fa-css3"></i><h3>CSS3</h3></div>
-        <div class="skill-item"><i class="fab fa-js-square"></i><h3>JavaScript</h3></div>
-        <div class="skill-item"><i class="fas fa-database"></i><h3>SQL</h3></div>
-        <div class="skill-item"><i class="fas fa-chart-bar"></i><h3>Power BI</h3></div>
-    </div>
-</section>
+        <p style="margin-top:10px;">
+          I specialize in back-end systems, APIs, and building polished interfaces.
+        </p>
+      </div>
+    </section>
 
 
-<!-- PROJECTS -->
-<section id="portfolio" class="section">
-    <h2 class="section-title">Projects</h2>
+    <!-- ==== SKILLS ==== -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Skills</h2>
 
-    <!-- DJANGO -->
-    <h2 class="tech-heading">Django</h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-card">
-            <img src="./AGRI-GRO.png">
-            <div class="card-content">
-                <h3>Agriculture E-Commerce Platform</h3>
-                <p>A full-stack Django web app where farmers can sell products directly to consumers.</p>
-                <a href="https://e-comerse-web-site.onrender.com" class="view-link" target="_blank">🌐 Live Deployment →</a><br>
-                <a href="https://github.com/Lukhman97/E-comerse_web_site" class="view-link" target="_blank">💻 View Code →</a>
+      <h3 class="subcategory-title">Technical Skills</h3>
+      <div class="skills-grid">
+        <div class="skill-item"><i class="fab fa-python"></i><h4>Python</h4></div>
+        <div class="skill-item"><i class="fas fa-server"></i><h4>Django</h4></div>
+        <div class="skill-item"><i class="fab fa-html5"></i><h4>HTML5</h4></div>
+        <div class="skill-item"><i class="fab fa-css3"></i><h4>CSS3</h4></div>
+        <div class="skill-item"><i class="fab fa-js"></i><h4>JavaScript</h4></div>
+        <div class="skill-item"><i class="fas fa-database"></i><h4>SQL</h4></div>
+
+        <div class="skill-item"><i class="fas fa-table"></i><h4>Pandas</h4></div>
+        <div class="skill-item"><i class="fas fa-chart-bar"></i><h4>Power BI</h4></div>
+        <div class="skill-item"><i class="fas fa-chart-line"></i><h4>NumPy</h4></div>
+
+        <div class="skill-item"><i class="fas fa-cubes"></i><h4>Bootstrap</h4></div>
+        <div class="skill-item"><i class="fas fa-network-wired"></i><h4>REST APIs</h4></div>
+        <div class="skill-item"><i class="fas fa-code-branch"></i><h4>JSON</h4></div>
+
+        <div class="skill-item"><i class="fab fa-git-alt"></i><h4>Git</h4></div>
+        <div class="skill-item"><i class="fab fa-github"></i><h4>GitHub</h4></div>
+      </div>
+
+
+      <h3 class="subcategory-title">Tools</h3>
+      <div class="skills-grid">
+        <div class="skill-item"><i class="fas fa-laptop-code"></i><h4>VS Code</h4></div>
+        <div class="skill-item"><i class="fas fa-terminal"></i><h4>PowerShell</h4></div>
+        <div class="skill-item"><i class="fas fa-file-word"></i><h4>MS Office</h4></div>
+        <div class="skill-item"><i class="fas fa-file-excel"></i><h4>MS Excel</h4></div>
+        <div class="skill-item"><i class="fas fa-desktop"></i><h4>GitHub Desktop</h4></div>
+      </div>
+    </section>
+
+
+    <!-- ==== PROJECTS ==== -->
+    <section id="portfolio" class="section">
+      <h2 class="section-title">Projects</h2>
+
+      <!-- Django -->
+      <h3 class="subcategory-title">Django</h3>
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <div class="card-media"><img src="./AGRI-GRO.png"></div>
+          <div class="card-content">
+            <h3>Agriculture E-Commerce Platform</h3>
+            <p>Django-based platform for farmers to sell goods directly.</p>
+            <div class="card-links">
+              <a class="project-btn" href="https://e-comerse-web-site.onrender.com" target="_blank">🌐 Live Demo</a>
+              <a class="project-btn" href="https://github.com/Lukhman97/E-comerse_web_site" target="_blank">💻 Code</a>
             </div>
-        </div>
-    </div>
+          </div>
+        </article>
+      </div>
 
 
-
-    <!-- FRONTEND PROJECTS -->
-    <h2 class="tech-heading">Frontend</h2>
-    <div class="portfolio-grid">
+      <!-- Frontend -->
+      <h3 class="subcategory-title">Frontend</h3>
+      <div class="portfolio-grid">
 
         <!-- Portfolio Website -->
-        <div class="portfolio-card">
-            <img src="./portfoilo1111.jpeg">
-            <div class="card-content">
-                <h3>Personal Portfolio Website</h3>
-                <p>A fully responsive personal portfolio created using HTML, CSS, and JavaScript.</p>
-                <a href="https://lukhman97.github.io/My_Portfoilo_Website/lukhman6.html" class="view-link" target="_blank">🌐 Live Demo →</a><br>
-                <a href="https://github.com/Lukhman97/My_Portfoilo_Website" class="view-link" target="_blank">💻 View Code →</a>
+        <article class="portfolio-card">
+          <div class="card-media"><img src="./portfoilo1111.jpeg"></div>
+          <div class="card-content">
+            <h3>Portfolio Website</h3>
+            <p>Responsive personal portfolio built using HTML/CSS.</p>
+            <div class="card-links">
+              <a class="project-btn" href="https://lukhman97.github.io/My_Portfoilo_Website/lukhman6.html" target="_blank">🌐 Live Demo</a>
+              <a class="project-btn" href="https://github.com/Lukhman97/My_Portfoilo_Website" target="_blank">💻 Code</a>
             </div>
-        </div>
+          </div>
+        </article>
 
-        <!-- FOOD BLOG PROJECT -->
-        <div class="portfolio-card">
-            <img src="./food_blog.png">
-            <div class="card-content">
-                <h3>Food Blog Website</h3>
-                <p>A modern and responsive food blog webpage made using HTML & CSS.</p>
-                <a href="https://lukhman97.github.io/css_project_food_blog/new_file.html" class="view-link" target="_blank">🌐 Live Demo →</a><br>
-                <a href="https://github.com/Lukhman97/css_project_food_blog" class="view-link" target="_blank">💻 View Code →</a>
+        <!-- Food Blog -->
+        <article class="portfolio-card">
+          <div class="card-media"><img src="./food_blog.png"></div>
+          <div class="card-content">
+            <h3>Food Blog Website</h3>
+            <p>Modern food blog UI using HTML & CSS.</p>
+            <div class="card-links">
+              <a class="project-btn" href="https://lukhman97.github.io/css_project_food_blog/new_file.html" target="_blank">🌐 Live Demo</a>
+              <a class="project-btn" href="https://github.com/Lukhman97/css_project_food_blog" target="_blank">💻 Code</a>
             </div>
-        </div>
+          </div>
+        </article>
 
-        <!-- DHONI BIOPIC PROJECT -->
-        <div class="portfolio-card">
-            <img src="./dhoni.jpeg">
-            <div class="card-content">
-                <h3>Dhoni Biopic Webpage</h3>
-                <p>A tribute-style Dhoni biography page built using HTML & CSS.</p>
-                <a href="https://lukhman97.github.io/Dhoni_Biopic_css_html/miniproject.html" class="view-link" target="_blank">🌐 Live Demo →</a><br>
-                <a href="https://github.com/Lukhman97/Dhoni_Biopic_css_html/blob/main/miniproject.html" class="view-link" target="_blank">💻 View Code →</a>
+        <!-- Dhoni Page -->
+        <article class="portfolio-card">
+          <div class="card-media"><img src="./dhoni.jpeg"></div>
+          <div class="card-content">
+            <h3>Dhoni Biopic Page</h3>
+            <p>A tribute page created using HTML & CSS.</p>
+            <div class="card-links">
+              <a class="project-btn" href="https://lukhman97.github.io/Dhoni_Biopic_css_html/miniproject.html" target="_blank">🌐 Live Demo</a>
+              <a class="project-btn" href="https://github.com/Lukhman97/Dhoni_Biopic_css_html/blob/main/miniproject.html" target="_blank">💻 Code</a>
             </div>
-        </div>
+          </div>
+        </article>
 
-    </div>
-
-
-    <!-- PYTHON -->
-    <h2 class="tech-heading">Python</h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-card">
-            <img src="./voice asistance.png">
-            <div class="card-content">
-                <h3>AI Voice Assistant</h3>
-                <p>A Python-based voice assistant capable of automation and answering queries.</p>
-                <a href="https://github.com/Lukhman97/voice_assistance_using-python/blob/main/voice-assitance_using_python.py" class="view-link" target="_blank">💻 View Code →</a>
+        <!-- Clock Project -->
+        <article class="portfolio-card">
+          <div class="card-media"><img src="./digital_clock.jpeg"></div>
+          <div class="card-content">
+            <h3>JavaScript Clock App</h3>
+            <p>A real-time digital clock created using HTML, CSS, and JavaScript.</p>
+            <div class="card-links">
+              <a class="project-btn" href="https://lukhman97.github.io/clock_project_js/index.html" target="_blank">🌐 Live Demo</a>
+              <a class="project-btn" href="https://github.com/Lukhman97/clock_project_js/blob/main/index.html" target="_blank">💻 Code</a>
             </div>
-        </div>
-    </div>
+          </div>
+        </article>
 
-    <!-- POWER BI -->
-    <h2 class="tech-heading">Power BI</h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-card">
-            <img src="./power_bi.png">
-            <div class="card-content">
-                <h3>Power BI Dashboards</h3>
-                <p>Interactive dashboards with KPI visuals, DAX functions, and analytics.</p>
-                <a href="https://github.com/Lukhman97/PowerBi_Projects" class="view-link" target="_blank">📊 View Power BI Projects →</a>
+        <!-- Fashion Mart -->
+        <article class="portfolio-card">
+          <div class="card-media"><img src="./fashion_mart.jpeg"></div>
+          <div class="card-content">
+            <h3>Fashion Mart – Kaira</h3>
+            <p>A modern ecommerce fashion UI built with HTML & CSS.</p>
+            <div class="card-links">
+              <a class="project-btn" href="https://lukhman97.github.io/html_front_project_kaira/fashion_mart1.html" target="_blank">🌐 Live Demo</a>
+              <a class="project-btn" href="https://github.com/Lukhman97/html_front_project_kaira/blob/main/fashion_mart1.html" target="_blank">💻 Code</a>
             </div>
-        </div>
-    </div>
+          </div>
+        </article>
 
-</section>
+        <!-- Calculator -->
+        <article class="portfolio-card">
+          <div class="card-media"><img src="./caliculator1.jpeg"></div>
+          <div class="card-content">
+            <h3>JavaScript Calculator</h3>
+            <p>A functional calculator built using HTML, CSS, and JavaScript.</p>
+            <div class="card-links">
+              <a class="project-btn" href="https://lukhman97.github.io/clock_project_js/Caliculator.html" target="_blank">🌐 Live Demo</a>
+              <a class="project-btn" href="https://github.com/Lukhman97/clock_project_js/blob/main/Caliculator.html" target="_blank">💻 Code</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
 
 
+      <!-- Python -->
+      <h3 class="subcategory-title">Python</h3>
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <div class="card-media"><img src="./voice asistance.png"></div>
+          <div class="card-content">
+            <h3>AI Voice Assistant</h3>
+            <p>Python-based desktop voice command automation.</p>
+            <div class="card-links">
+              <a class="project-btn" href="https://github.com/Lukhman97/voice_assistance_using-python/blob/main/voice-assitance_using_python.py" target="_blank">💻 Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="contact-links">
-        <a href="mailto:lukhmanshaik786@gmail.com" class="contact-button"><i class="fas fa-envelope"></i>Email</a>
-        <a href="https://linkedin.com/in/lukhman-shaik-816492281" class="contact-button" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
-        <a href="https://github.com/Lukhman97" class="contact-button" target="_blank"><i class="fab fa-github"></i>GitHub</a>
-    </div>
-</section>
+      <!-- Power BI -->
+      <h3 class="subcategory-title">Power BI</h3>
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <div class="card-media"><img src="./power_bi.png"></div>
+          <div class="card-content">
+            <h3>Power BI Dashboards</h3>
+            <p>Interactive dashboards using Power BI, DAX, KPIs.</p>
+            <div class="card-links">
+              <a class="project-btn" href="https://github.com/Lukhman97/PowerBi_Projects" target="_blank">📊 View Projects</a>
+            </div>
+          </div>
+        </article>
+      </div>
 
-</main>
+    </section>
 
-<footer>
+
+    <!-- ================= RESUME ================= -->
+    <section id="resume" class="section">
+      <h2 class="section-title">Resume</h2>
+
+      <div style="text-align:center; margin-top:25px;">
+        <a href="https://drive.google.com/file/d/19wR_9ELYGHGjHhfB9dFoY1uOzDA57VKc/view?usp=sharing"
+           class="resume-btn"
+           target="_blank">
+          <i class="fas fa-file-pdf"></i> View My Resume
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="contact-section">
+      <h2 class="section-title">Get In Touch</h2>
+
+      <div class="contact-links">
+        <a class="contact-button" href="mailto:lukhmanshaik786@gmail.com">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+
+        <a class="contact-button" href="https://linkedin.com/in/lukhman-shaik-816492281" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+
+        <a class="contact-button" href="https://github.com/Lukhman97" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
     <p>© 2025 Shaik Lukhman. All Rights Reserved.</p>
-</footer>
+  </footer>
+
+
+  <!-- DARK MODE SCRIPT -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const modeLabel = document.getElementById('modeLabel');
+    const icon = toggle.querySelector('i');
+
+    const saved = localStorage.getItem('site-theme');
+
+    function applyDark(isDark){
+      if(isDark){
+        document.documentElement.classList.add('dark');
+        modeLabel.textContent = "Light";
+        icon.className = "fas fa-sun";
+      } else {
+        document.documentElement.classList.remove('dark');
+        modeLabel.textContent = "Dark";
+        icon.className = "fas fa-moon";
+      }
+    }
+
+    applyDark(saved === "dark");
+
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('site-theme', isDark ? "dark" : "light");
+      applyDark(isDark);
+    });
+
+
+    /* About text animation */
+    const aboutText = document.getElementById("aboutText");
+    const obs = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        aboutText.classList.add("animate-in");
+      }
+    }, { threshold: 0.2 });
+    obs.observe(aboutText);
+  </script>
 
 </body>
 </html>
