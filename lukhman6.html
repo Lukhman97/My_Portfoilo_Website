@@ -111,19 +111,34 @@
       align-items:center;
       width:100%;
     }
+.hero-image{
+        width:320px;
+        height:320px;
+        border-radius:50%;
+        overflow:hidden;
+        cursor:pointer;
+        transition: transform .35s ease, box-shadow .35s ease;
+    }
 
     .hero-image img{
-      width:320px; height:320px;
-      border-radius:50%;
-      object-fit:cover;
-      border:6px solid rgba(255,255,255,0.12);
-      box-shadow:0 14px 40px rgba(0,0,0,0.45);
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        border-radius:50%;
+        transition: transform .35s ease;
+        transform-origin:center;
     }
 
-    .hero-title{
-      font-size:2.8rem;
-      font-weight:700;
+    /* ⭐ Hover Effect */
+    .hero-image:hover{
+        transform:translateY(-10px) scale(1.07);
+        box-shadow:0 25px 60px rgba(0,0,0,0.45);
     }
+
+    .hero-image:hover img{
+        transform:scale(1.09);
+    }
+
 
     .hero-subtitle{ font-size:1.05rem; color:#e6eef9; }
 
@@ -168,22 +183,30 @@
     }
 
     .profile-photo{
-      width:330px; height:330px;
-      border-radius:16px;
-      overflow:hidden;
-      border:6px solid rgba(255,255,255,0.06);
-      box-shadow: 0 12px 35px rgba(16,36,64,0.12);
-      transition:0.4s;
+        width:380px; 
+        height:380px;
+        border-radius:16px;
+        overflow:hidden;
+        border:6px solid rgba(255,255,255,0.06);
+        box-shadow:0 14px 40px rgba(16,36,64,0.18);
+        transition:0.4s;
     }
 
     .profile-photo img{
-      width:100%; height:100%; object-fit:cover; 
-    }
+                width:100%; 
+                height:100%; 
+                object-fit:cover;
+            }
 
-    .profile-photo:hover{
-      transform:translateY(-6px) scale(1.03);
-      box-shadow:0 22px 55px rgba(15,52,96,0.35);
-    }
+            .profile-photo:hover{
+            transform: translateY(-10px) scale(1.05);
+            box-shadow:0 28px 60px rgba(15,52,96,0.40);
+        }
+
+        .profile-photo:hover img{
+            transform: scale(1.08);
+        }
+
 
     .about-text{
       flex:1;
